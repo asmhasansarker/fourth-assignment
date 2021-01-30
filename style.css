@@ -76,6 +76,7 @@ nav ul li a:hover, a.active{
 }
 .plus-minus-btn span{
     margin: 10px;
+    cursor: pointer;
 }
 .booking-form  .calculations{
     margin: 10px 0;
