@@ -1,26 +1,54 @@
-const firstClassPlus = document.getElementById("firstClassPlus");
-const firstClassMinus = document.getElementById("firstClassMinus");
-const economyPlus =document.getElementById("economyPlus");
-const economyMinus = document.getElementById("economyMinus");
 const bookBtn = document.getElementById("bookBtn");
 
 
-
-
-
 function ticketChange(ticketInput ,isIncrease){
-    let fTicketNumber = getInputNumber(ticketInput);
+    let ticketNumber = getInputNumber(ticketInput);
     if(isIncrease == true){
-        fTicketNumber++;
+        ticketNumber++;
     }
-    if(isIncrease == false && fTicketNumber > 0){
-        fTicketNumber--;
+    if(isIncrease == false && ticketNumber > 0){
+        ticketNumber--;
     }
-    document.getElementById(ticketInput).value = fTicketNumber;
+    document.getElementById(ticketInput).value = ticketNumber;
     total();
 }
 
 
+function getInputNumber(id){
+    var amount = document.getElementById(id).value;
+    var number = parseInt(amount);
+    return number;
+}
+
+
+function total(){
+    let fTicketNumber = getInputNumber("firstClassTicket");
+    let eTicketNumber = getInputNumber("eTicket");
+    let subtotal = (fTicketNumber * 150) + (eTicketNumber * 100);
+    let vat = subtotal * 0.1;
+    vat.toFixed(2);
+    let totalAmount = subtotal + vat;
+    document.querySelector("#subtotal").innerText = subtotal;
+    document.querySelector("#vat").innerText = vat;
+    document.querySelector("#total").innerText = totalAmount; 
+}
+// ---------------------
+// Popup Function Area
+// ---------------------
+
+function popup(){
+    let fTicketNumber = getInputNumber("firstClassTicket");
+    let eTicketNumber = getInputNumber("eTicket");
+    document.querySelector("#f").innerText = fTicketNumber;
+    document.querySelector("#e").innerText = eTicketNumber;
+    document.getElementById("popup-1").classList.add("active");
+}
+
+
+const close = document.querySelector("#close");
+close.addEventListener("click",function(){
+    document.getElementById("popup-1").classList.remove("active");
+})
 
 
 
@@ -48,16 +76,6 @@ function ticketChange(ticketInput ,isIncrease){
 //     document.getElementById("eTicket").value = eTicketNumber;
 //     total();
 // }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -87,9 +105,6 @@ function ticketChange(ticketInput ,isIncrease){
 //     document.getElementById("eTicket").value = eTicketNumber;
 //     total();
 // }
-
-
-
 
 
 
@@ -119,15 +134,6 @@ function ticketChange(ticketInput ,isIncrease){
 // })
 
 
-function getInputNumber(id){
-    var amount = document.getElementById(id).value;
-    var number = parseInt(amount);
-    return number;
-}
-
-
-
-
 // economyPlus.addEventListener("click",function(){
 //     // let eTicketAmount = document.getElementById("eTicket").value;
 //     // let eTicketNumber = parseInt(eTicketAmount);
@@ -151,37 +157,3 @@ function getInputNumber(id){
 //     total()
     
 // })
-
-function total(){
-    let fTicketNumber = getInputNumber("firstClassTicket");
-    let eTicketNumber = getInputNumber("eTicket");
-    let subtotal = (fTicketNumber * 150) + (eTicketNumber * 100);
-    let vat = subtotal * 0.1;
-    vat.toFixed(2);
-    let totalAmount = subtotal + vat;
-    document.querySelector("#subtotal").innerText = subtotal;
-    document.querySelector("#vat").innerText = vat;
-    document.querySelector("#total").innerText = totalAmount; 
-}
-
-
-
-
-// ---------------------
-// Popup Function Area
-// ---------------------
-
-function popup(){
-    let fTicketNumber = getInputNumber("firstClassTicket");
-    let eTicketNumber = getInputNumber("eTicket");
-    document.querySelector("#f").innerText = fTicketNumber;
-    document.querySelector("#e").innerText = eTicketNumber;
-    document.getElementById("popup-1").classList.add("active");
-}
-
-
-const close = document.querySelector("#close");
-close.addEventListener("click",function(){
-    document.getElementById("popup-1").classList.remove("active");
-})
-
