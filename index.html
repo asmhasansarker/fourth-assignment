@@ -79,7 +79,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="subtotal">500</span> </p>
+                        <p>$ <span id="subtotal">0</span> </p>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="vat">50</span> </p>
+                        <p>$ <span id="vat">0</span> </p>
                     </div>
                 </div>
                 <hr>
@@ -97,11 +97,11 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$ <span id="total">550</span> </p>
+                        <p>$ <span id="total">0</span> </p>
                     </div>
                 </div>
             </div>
-            <button id="bookBtn" class="btn-style" onclick="popup()">Book Now</button>
+            <button class="btn-style" onclick="popup()">Book Now</button>
         </div>
 
         <div class="booking-content">
@@ -132,7 +132,7 @@
         <div class="overlay">
         </div>
         <div class="content">
-            <div id="close" class="close-btn">OK</div>
+            <div id="close" class="close-btn" onclick="closePopup()">OK</div>
             <h2>Congratulation !</h2>
             <p>You have successfully booked <span id="f">0</span> First Class Tickets and <span id="e">0</span> Economy Tickets.
             <br>

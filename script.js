@@ -1,6 +1,15 @@
-const bookBtn = document.getElementById("bookBtn");
+// --------------------------------
+// CONVERT STRING TO NUMBER
+// --------------------------------
 
+function getInputNumber(id){
+    var number = parseInt(document.getElementById(id).value);
+    return number;
+}
 
+// --------------------------------
+// TICKET COUNT
+// --------------------------------
 function ticketChange(ticketInput ,isIncrease){
     let ticketNumber = getInputNumber(ticketInput);
     if(isIncrease == true){
@@ -13,29 +22,23 @@ function ticketChange(ticketInput ,isIncrease){
     total();
 }
 
-
-function getInputNumber(id){
-    var amount = document.getElementById(id).value;
-    var number = parseInt(amount);
-    return number;
-}
-
-
+// --------------------------------
+// CALCULATE TOTAL COST
+// --------------------------------
 function total(){
     let fTicketNumber = getInputNumber("firstClassTicket");
     let eTicketNumber = getInputNumber("eTicket");
     let subtotal = (fTicketNumber * 150) + (eTicketNumber * 100);
-    let vat = subtotal * 0.1;
-    vat.toFixed(2);
+    let vat = Math.round(subtotal * 0.1);
     let totalAmount = subtotal + vat;
     document.querySelector("#subtotal").innerText = subtotal;
     document.querySelector("#vat").innerText = vat;
     document.querySelector("#total").innerText = totalAmount; 
 }
+
 // ---------------------
 // Popup Function Area
 // ---------------------
-
 function popup(){
     let fTicketNumber = getInputNumber("firstClassTicket");
     let eTicketNumber = getInputNumber("eTicket");
@@ -45,11 +48,9 @@ function popup(){
 }
 
 
-const close = document.querySelector("#close");
-close.addEventListener("click",function(){
+function closePopup(){
     document.getElementById("popup-1").classList.remove("active");
-})
-
+}
 
 
 // function handleFTicketChange(isIncrease){
